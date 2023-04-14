@@ -1,0 +1,98 @@
+{
+  /* program config */
+  "training_manager_function": "RNNSeq2SeqTrainingManager",
+  /* "random_seed": 3435, */
+  "initial_func_name": "standard_uniform",
+  /* embeddings */
+  "text_embedding_size": 500,
+  "embedding_dropout": 0.0,
+  "pretrained_embedding": false,
+  /* "source_embeddings_path": "./experiment/local_data/embeddings.620d.10212.npy", */
+  /* "embedding_word_dict_path": "./experiment/local_data/word2id.620d.10212.json", */
+  /* encoder-decoder */
+  "cell_type": "LSTM",
+  "bidirectional": true,
+  "cell_bias": true,
+  /* "dropout": 0.3, */
+  /* encoder */
+  "encoder_num_units": 500,
+  "encoder_num_layers": 1,
+  "initialize_encoder_state": false,
+  "encoder_initial_state_size": 500,
+  "encoder_dropout": 0.3,
+  /* attention */
+  "attention_type": "general_luong",
+  "attention_num_units": 500,
+  "attention_dropout": 0.3,
+  "project_out": true,
+  /* decoder */
+  "decoder_style": "luong",
+  "decoder_num_units": 500,
+  "decoder_num_layers": 1,
+  "initialize_decoder_state": true,
+  "initialize_decoder_with_encoder": true,
+  "decoder_initial_state_size": 500,
+  "decoder_dropout": 0.3,
+  "input_feeding": true,
+  /* generator */
+  "generator_dropout": 0.0,
+  "generator_bias": true,
+  /* optimizer */
+  "optimizer": "adam",
+  "max_gradient_norm": 5.0,
+  /* scheduler */
+  "scheduler_type": "ExponentialLR",
+  "learning_rate": 0.002,
+  "start_decay_step": 8,
+  "decay_factor": 0.5,
+  /* criterion */
+  "criterion": "NLLLoss",
+  "loss_normalize_type": "sentence",
+  /* data manager */
+  "apply_torchtext": true,
+  "iterator": "Iterator",
+  /* dataset */
+  "dataset": "multi30k_text",
+  "dataset_config_file": "./configurations/data_configurations/multi30k-config.json",
+  "src": "en",
+  "tgt": "de",
+  /* data process */
+  "bpe_delimiter": "@@",
+  "shuffle_dataset": true,
+  "num_workers": 3,
+  "max_len": 50,
+  "min_len": 0,
+  /* vocab */
+  "individual_start_token": false,
+  "sos": "<s>",
+  "eos": "</s>",
+  "unk": "<unk>",
+  /* hardware */
+  "multiple_gpu": false,
+  /* training */
+  /* "epoch" has the highest priority for training. */
+  /* "stop_signal" has three options "step/bleu/loss". */
+  /* "stop_signal" has three options "step/bleu/loss". */
+  "epoch": 40,
+  "max_steps_without_change": 10,
+  "steps_per_internal_eval": 50,
+  "batch_size": 40,
+  "batch_first": true,
+  "stop_signal": "bleu",
+  /* training output */
+  /* "out_dir": "", */
+  "project_name": "rnns2s",
+  "checkpoint_name": "checkpoints",
+  "checkpoint_keep_number": 3,
+  /* evaluation */
+  "eval_batch_size": 10,
+  "steps_per_external_eval": 725,
+  "validate_with_evaluation": false,
+  "validate_with_inference": true,
+  /* inference */
+  "infer_batch_size": 10,
+  "steps_per_infer": 725,
+  "beam_width": 5,
+  "max_decode_step_ratio": 2.0,
+  "translation_filename": "translations.txt"
+}

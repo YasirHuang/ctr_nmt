@@ -1,0 +1,82 @@
+{
+  /* program config */
+  "training_manager_function": "TransformerTrainingManager",
+  /* "random_seed": 1234, */
+  /* embeddings */
+  "share_embedding": true,
+  "text_embedding_size": 128,
+  "embedding_dropout": 0.2,
+  /* encoder-decoder */
+  "number_of_head": 4,
+  "transformer_activation": "relu",
+  /* encoder */
+  "encoder_num_units": 256,
+  "encoder_num_layers": 4,
+  "encoder_dropout": 0.2,
+  /* decoder */
+  "decoder_num_units": 256,
+  "decoder_num_layers": 4,
+  "decoder_dropout": 0.2,
+  /* generator */
+  "generator_dropout": 0.0,
+  "generator_bias": false,
+  /* optimizer */
+  "optimizer": "noamadam",
+  "max_gradient_norm": -1.0,
+  "optimize_delay": 1,
+  "adam_beta2": 0.98,
+  /* scheduler */
+  "learning_rate": 1.0,
+  "start_decay_step": 4000,
+  /* criterion */
+  "criterion": "LabelSmoothing",
+  "loss_normalize_type": "token",
+  "smoothing": 0.1,
+  /* data manager */
+  "apply_torchtext": true,
+  "iterator": "BucketIterator",
+  /* dataset */
+  "dataset": "multi30k_text",
+  /* "dataset_config_file": "./configurations/data_configurations/multi30k-sharevocab-bpe-config.json", */
+  "src": "en",
+  "tgt": "de",
+  /* data process */
+  "bpe_delimiter": "@@",
+  "shuffle_dataset": true,
+  "num_workers": 3,
+  "max_len": 50,
+  "min_len": 0,
+  /* vocab */
+  "share_vocab": true,
+  "max_vocab_size": 40000,
+  "individual_start_token": false,
+  "sos": "<s>",
+  "eos": "</s>",
+  "unk": "<unk>",
+  "pad": "<pad>",
+  /* hardware */
+  "multiple_gpu": false,
+  /* training */
+  "epoch": 1000,
+  "max_steps_without_change": 80000,
+  "steps_per_internal_eval": 100,
+  "batch_size": 2000,
+  "batch_first": true,
+  "stop_signal": "step",
+  /* training output */
+  /* "out_dir": "", */
+  "project_name": "transformer",
+  "checkpoint_name": "checkpoints",
+  "checkpoint_keep_number": 1,
+  /* evaluation */
+  "eval_batch_size": 10,
+  "steps_per_external_eval": 2000,
+  "validate_with_evaluation": false,
+  "validate_with_inference": true,
+  /* inference */
+  "infer_batch_size": 10,
+  "steps_per_infer": 2000,
+  "beam_width": 4,
+  "max_decode_step_ratio": 2.0,
+  "translation_filename": "translations.txt"
+}

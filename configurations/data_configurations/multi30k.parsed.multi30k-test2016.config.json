@@ -1,0 +1,31 @@
+{
+  "key_word_pos_list_file": "experiment/data/multi30k/task1_fixed_by_task2/key_word_pos_list.txt",
+  "key_word_list_file": "experiment/data/multi30k/task1_fixed_by_task2/key_word_list.txt",
+
+  "train_image_file_global": "experiment/data/multi30k/image_features/flickr30k_train_resnet50_cnn_features_global.npy",
+  "val_image_file_global": "experiment/data/multi30k/image_features/flickr30k_valid_resnet50_cnn_features_global.npy",
+  "test_image_file_global": "experiment/data/multi30k/image_features/flickr30k_test_resnet50_cnn_features_global.npy",
+
+  "train_image_file_local": "experiment/data/multi30k/image_features/flickr30k_train_resnet50_cnn_features_local.npy",
+  "val_image_file_local": "experiment/data/multi30k/image_features/flickr30k_valid_resnet50_cnn_features_local.npy",
+  "test_image_file_local": "experiment/data/multi30k/image_features/flickr30k_test_resnet50_cnn_features_local.npy",
+
+  "train_boundingbox_features_file": "experiment/data/multi30k/image_features/bounding_box/train.res.npy",
+  "val_boundingbox_features_file": "experiment/data/multi30k/image_features/bounding_box/val.res.npy",
+  "test_boundingbox_features_file": "experiment/data/multi30k/image_features/bounding_box/test_2016_flickr.res.npy",
+
+  "train_splits_file": "experiment/data/multi30k/original/splits/train_images.txt",
+  "val_splits_file": "experiment/data/multi30k/original/splits/val_images.txt",
+  "test_splits_file": "experiment/data/multi30k/original/splits/test_images.txt",
+
+  "train_source_json_file": "experiment/data/multi30k/task1_fixed_by_task2/train.fixed.tok.lc.tagged.en.json",
+  "val_source_json_file": "experiment/data/multi30k/task1_fixed_by_task2/val.tok.lc.tagged.en.json",
+  "test_source_json_file": "experiment/data/multi30k/task1_fixed_by_task2/test_2016_flickr.tok.lc.tagged.en.json",
+
+  "train_prefix": "experiment/data/multi30k/task1_fixed_by_task2/train.fixed.tok.lc",
+  "val_prefix": "experiment/data/multi30k/task1_fixed_by_task2/val.tok.lc",
+  "test_prefix": "experiment/data/multi30k/task1_fixed_by_task2/test_2016_flickr.tok.lc",
+  "vocab_prefix": "experiment/data/multi30k/task1_fixed_by_task2/vocab.tok.lc",
+
+  "languages": ["en", "de", "fr", "cs"]
+}

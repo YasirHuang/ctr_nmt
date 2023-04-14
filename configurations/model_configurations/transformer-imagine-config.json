@@ -1,0 +1,101 @@
+{
+  /* program config */
+  "training_manager_function": "TransformerImagineTrainingManager",
+  /* "random_seed": 1234, */
+  /* embeddings */
+  /* this model only supports share_embedding=true, there is no need to set it.*/
+  /* "share_embedding": true, */
+  "text_embedding_size": 128,
+  "embedding_dropout": 0.2,
+  /* encoder-decoder */
+  "number_of_head": 4,
+  "transformer_activation": "relu",
+  /* encoder */
+  "encoder_num_units": 256,
+  "encoder_num_layers": 4,
+  "encoder_dropout": 0.2,
+  /* decoder */
+  "decoder_num_units": 256,
+  "decoder_num_layers": 4,
+  "decoder_dropout": 0.2,
+  /* generator */
+  "generator_dropout": 0.0,
+  "generator_bias": false,
+  /* optimizer */
+  "optimizer": "noamadam",
+  "max_gradient_norm": -1.0,
+  "optimize_delay": 1,
+  "adam_beta2": 0.98,
+  /* scheduler */
+  "learning_rate": 1.0,
+  "start_decay_step": 4000,
+  /* criterion */
+  "criterion": "LabelSmoothing",
+  "loss_normalize_type": "token",
+  "smoothing": 0.1,
+  /* data manager */
+  "apply_torchtext": true,
+  "iterator": "BucketIterator",
+  /* dataset */
+  "dataset": "multi30k_boundingbox_feature",
+  /* "dataset_config_file": "./configurations/data_configurations/gmnmt.multi30k-test2016.config.json", */
+  "dataset_config_file": "./configurations/data_configurations/multi30k-config.json",
+  "src": "en",
+  "tgt": "de",
+  /* data process */
+  "bpe_delimiter": "@@",
+  "shuffle_dataset": true,
+  "num_workers": 3,
+  "max_len": 50,
+  "min_len": 0,
+  /* vocab */
+  "share_vocab": true,
+  "max_vocab_size": 40000,
+  /* "individual_start_token": false, */
+  "sos": "<s>",
+  "eos": "</s>",
+  "unk": "<unk>",
+  "pad": "<pad>",
+  /* hardware */
+  "multiple_gpu": false,
+  /* training */
+  "epoch": 10000,
+  "max_steps_without_change": 80000,
+  "steps_per_internal_eval": 200,
+  "batch_size": 2000,
+  "batch_first": true,
+  "stop_signal": "step",
+  /* training output */
+  /* "out_dir": "", */
+  "project_name": "transformer",
+  "checkpoint_name": "checkpoints",
+  "checkpoint_keep_number": 1,
+  /* evaluation */
+  "eval_batch_size": 10,
+  "steps_per_external_eval": 4000,
+  "validate_with_evaluation": false,
+  "validate_with_inference": true,
+  /* inference */
+  "infer_batch_size": 10,
+  "steps_per_infer": 0,
+  "beam_width": 4,
+  "max_decode_step_ratio": 2.0,
+  "translation_filename": "translations.txt",
+  /* image projector */
+  "global_image_feature_size": 2048,
+  /* "big_image_projector": true, both true and false are ok when layer number == 1 */
+  "num_image_project_layer": 1,
+  /* "image_projector_activation": "tanh", None is default option */
+  "image_projector_bias": false,
+  "image_projector_dropout": 0.2
+  /* transformer-imagine-specific parameters */
+  /* "individual_start_token": false, */
+  /* "imagine_to_src": false, */
+  /* "share_decoder": true, */
+  /* "share_optimizer": true, */
+  /* data process */
+  /* "considered_phrase_type": ["people"], */
+  /* "real_time_parse": true, */
+  /* "average_multiple_images": false */
+  /* "key_word_own_image": true */
+}

@@ -1,0 +1,116 @@
+{
+  /* program config */
+  "training_manager_function": "RNNTokenImagineManager",
+  /* "random_seed": 3435, */
+  /* "initial_func_name": "none", */
+  /* embeddings */
+  "text_embedding_size": 500,
+  "embedding_dropout": 0.0,
+  "pretrained_embedding": false,
+  /* "source_embeddings_path": "./experiment/local_data/embeddings.620d.10212.npy", */
+  /* "embedding_word_dict_path": "./experiment/local_data/word2id.620d.10212.json", */
+  /* encoder-decoder */
+  /* "cell_type": "LSTM", */
+  "bidirectional": true,
+  "cell_bias": true,
+  /* "dropout": 0.3, */
+  /* encoder */
+  "encoder_num_units": 500,
+  "encoder_num_layers": 1,
+  "initialize_encoder_state": false,
+  "encoder_initial_state_size": 500,
+  "encoder_dropout": 0.3,
+  /* attention */
+  "attention_type": "general_luong",
+  "attention_num_units": 500,
+  "attention_dropout": 0.3,
+  "project_out": true,
+  /* decoder */
+  "decoder_style": "luong",
+  "decoder_num_units": 500,
+  "decoder_num_layers": 1,
+  "initialize_decoder_state": true,
+  "initialize_decoder_with_encoder": true,
+  "decoder_initial_state_size": 500,
+  "decoder_dropout": 0.3,
+  "input_feeding": true,
+  /* generator */
+  "generator_dropout": 0.0,
+  "generator_bias": true,
+  /* optimizer */
+  "optimizer": "adam",
+  "max_gradient_norm": 5.0,
+  /* scheduler */
+  "scheduler_type": "ExponentialLR",
+  "learning_rate": 0.002,
+  "start_decay_step": 8,
+  "decay_factor": 0.5,
+  /* criterion */
+  "criterion": "NLLLoss",
+  "loss_normalize_type": "sentence",
+  /* data manager */
+  "apply_torchtext": true,
+  "iterator": "Iterator",
+  /* dataset */
+  "dataset": "multi30k_boundingbox_feature",
+  /* "dataset_config_file": "./configurations/data_configurations/gmnmt.multi30k-test2016.config.json", */
+  "dataset_config_file": "./configurations/data_configurations/multi30k-config.json",
+  "src": "en",
+  "tgt": "de",
+  /* data process */
+  "bpe_delimiter": "@@",
+  "shuffle_dataset": true,
+  "num_workers": 3,
+  "max_len": 50,
+  "min_len": 0,
+  /* vocab */
+  /* "individual_start_token": false, */
+  "sos": "<s>",
+  "eos": "</s>",
+  "unk": "<unk>",
+  /* hardware */
+  "multiple_gpu": false,
+  /* training */
+  "epoch": 40,
+  "max_steps_without_change": 10,
+  "steps_per_internal_eval": 50,
+  "batch_size": 40,
+  "batch_first": true,
+  "stop_signal": "bleu",
+  /* training output */
+  /* "out_dir": "", */
+  "project_name": "rnns2s",
+  "checkpoint_name": "checkpoints",
+  "checkpoint_keep_number": 1,
+  /* evaluation */
+  "eval_batch_size": 10,
+  "steps_per_external_eval": 725,
+  "validate_with_evaluation": false,
+  "validate_with_inference": true,
+  /* inference */
+  "infer_batch_size": 10,
+  "steps_per_infer": 725,
+  "beam_width": 5,
+  "max_decode_step_ratio": 2.0,
+  "translation_filename": "translations.txt",
+  /* RNN-Token-Imagine-Model */
+  /* image projector */
+  "global_image_feature_size": 2048,
+  /* "big_image_projector": true, both true and false are ok when layer number == 1 */
+  "num_image_project_layer": 1,
+  /* "image_projector_activation": "tanh", None is default option */
+  "image_projector_bias": false,
+  "image_projector_dropout": 0.3
+  /* model optional parameters */
+  /* "individual_start_token": false */
+  /* "imagine_to_src": true, */
+  /* "share_decoder": false, */
+  /* "share_optimizer": true, */
+  /* "share_embedding": false */
+  /* "share_vocab": false */
+  /* data process */
+  /* "considered_phrase_type": ["people"], */
+  /* "real_time_parse": true, */
+  /* "average_multiple_images": false */
+  /* "key_word_own_image": true */
+}
